@@ -35,5 +35,3 @@ process samtools_head {
     samtools head ${input} > output_samtools_head.txt
     """
 }
-
-samtools_head.view {it.trim()}
