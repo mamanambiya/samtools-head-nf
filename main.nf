@@ -27,13 +27,22 @@ if (input == null) {
     exit 1, helpMessage("ERROR: no --input specified")
 }
 
+in = Channel.fromPath(input)
+
 process samtools_head {
+
+    input:
+      file mycram
 
     output:
         path "output_samtools_head.txt"
 
     script:
     """
-    samtools head ${input} > output_samtools_head.txt
+    samtools head ${mycram} > output_samtools_head.txt
     """
+}
+
+workflow {
+    samtools_head(in)
 }
