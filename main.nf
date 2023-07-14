@@ -1,8 +1,10 @@
 #!/usr/bin/env nextflow
 
-params.input = null
+//params.input = null
 
-input = params.input
+//input = params.input
+
+input = "https://ga4gh-ismb-tutorial-2022.s3.us-east-2.amazonaws.com/data/1000genomes/cram/lowcov/HG00118.lowcoverage.downsampled.cram"
 
 def helpMessage(message) {
     log.info"""
