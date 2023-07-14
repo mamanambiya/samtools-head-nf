@@ -1,5 +1,7 @@
 #!/usr/bin/env nextflow
 
+include { samtools_head } from "./modules/functions"
+
 //params.input = null
 
 //input = params.input
@@ -29,19 +31,6 @@ if (input == null) {
 
 in = Channel.fromPath(input)
 
-process samtools_head {
-
-    input:
-      file mycram
-
-    output:
-        path "output_samtools_head.txt"
-
-    script:
-    """
-    samtools head ${mycram} > output_samtools_head.txt
-    """
-}
 
 workflow {
     samtools_head(in)
